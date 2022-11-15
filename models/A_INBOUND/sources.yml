@@ -1,0 +1,13 @@
+
+version: 2
+
+sources:
+    - name: M360
+      database: DB_M360_PROD
+      schema: PUBLIC
+      quoting:
+        database: true
+        schema: true
+        identifier: true
+      tables:
+        - name: M360_DATA
