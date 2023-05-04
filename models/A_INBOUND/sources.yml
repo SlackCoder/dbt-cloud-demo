@@ -11,3 +11,23 @@ sources:
         identifier: true
       tables:
         - name: M360_DATA
+    - name: SAP_HANA
+      database: DB_SAP_PROD
+      schema: PUBLIC
+      quoting:
+        database: true
+        schema: true
+        identifier: true
+      tables:
+        - name: CUSTOMER
+        - name: CUSTOMER_CC
+        - name: CONTACT
+        - name: CONTACT_ROLE
+        - name: COMPANY
+        - name: LOCATION
+        - name: MATERIAL
+        - name: SALES_BILLING
+        - name: VENDOR
+        - name: COMPCODE
+        - name: SALESCUBE_TEMP
+        - name: PRMS_SALES
