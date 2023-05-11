@@ -22,10 +22,24 @@ sources:
       tables:
         - name: CUSTOMER
         - name: CUSTOMER_CC
+          columns:
+                - name: company_code
+                  tests:
+                    - relationships:
+                        to: ref('COMPCODE')
+                        field: company_code
         - name: CONTACT
         - name: CONTACT_ROLE
         - name: COMPANY
         - name: LOCATION
+          tests:
+            - unique:
+                column_name: "(source_system || site_code || update_time)"
+          columns:
+                - name: source_system
+                  tests:
+                    - accepted_values:
+                       values: ['RHL ECC','LMK ECC']
         - name: MATERIAL
         - name: SALES_BILLING
         - name: VENDOR
