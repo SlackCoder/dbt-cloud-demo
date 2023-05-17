@@ -25,6 +25,9 @@ sources:
         - name: CONTACT_ROLE
         - name: COMPANY
         - name: LOCATION
+          tests:
+            - unique:
+                column_name: "(source_system || site_code || update_time)"
         - name: MATERIAL
         - name: SALES_BILLING
         - name: VENDOR
