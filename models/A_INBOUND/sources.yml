@@ -12,6 +12,7 @@ sources:
       tables:
         - name: M360_DATA
     - name: SAP_HANA
+      description: SAP Unify Database to get data from HANA
       database: DB_SAP_PROD
       schema: PUBLIC
       quoting:
@@ -20,11 +21,14 @@ sources:
         identifier: true
       tables:
         - name: CUSTOMER
+          description: Customer Master data (Key Customer)
         - name: CUSTOMER_CC
+          description: Customer Company Code Master data (Key Customer, company code)
         - name: CONTACT
         - name: CONTACT_ROLE
         - name: COMPANY
         - name: LOCATION
+          description: '{{ doc("Location_doc") }}'
           tests:
             - unique:
                 column_name: "(source_system || site_code || update_time)"
