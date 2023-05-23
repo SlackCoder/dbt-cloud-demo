@@ -8,6 +8,7 @@ renamed as (
 
     select
         source_system,
+        source_system||'-'||company_code,
         company_code,
         company_code_desc,
         chart_of_accounts,
