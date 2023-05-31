@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e8ed0d42e223431fba3bb5b933107a79cd84f19a
 with source as (
 
     select * from {{ source('SAP_HANA', 'MATERIAL') }}

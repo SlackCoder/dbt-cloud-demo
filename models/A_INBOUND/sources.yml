@@ -13,6 +13,8 @@ sources:
         - name: M360_DATA
     - name: SAP_HANA
       description: SAP Unify Database to get data from HANA
+    - name: SAP_HANA
+      description: SAP Unify Database
       database: DB_SAP_PROD
       schema: PUBLIC
       quoting:
@@ -24,6 +26,10 @@ sources:
           description: Customer Master data (Key Customer)
         - name: CUSTOMER_CC
           description: Customer Company Code Master data (Key Customer, company code)
+          description: Customer Master data(Key is Customer)
+        - name: CUSTOMER_CC
+          description: Customer Company Code Master data(Key is Customer and Company Code)
+                       This comes from HANA snapshot tables
         - name: CONTACT
         - name: CONTACT_ROLE
         - name: COMPANY
@@ -40,4 +46,19 @@ sources:
         - name: VENDOR
         - name: COMPCODE
         - name: SALESCUBE_TEMP
+               column_name: "(source_system || site_code || update_time)"
+          columns:
+              - name: source_system
+                tests:
+                  - accepted_values:
+                     values: ['RHL ECC','LMK ECC']
+        - name: MATERIAL
+        - name: SALES_BILLING
+          freshness: 
+            error_after:
+              count: 10
+              period: hour
+          loaded_at_field: "convert_timezone('Australia/Sydney', 'UTC', update_time)"
+          
+        - name: VENDOR
         - name: PRMS_SALES

@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e8ed0d42e223431fba3bb5b933107a79cd84f19a
 with source as (
 
     select * from {{ source('SAP_HANA', 'CONTACT') }}
@@ -27,4 +30,8 @@ renamed as (
 
 )
 
+<<<<<<< HEAD
 select * from renamed
+=======
+select * from renamed
+>>>>>>> e8ed0d42e223431fba3bb5b933107a79cd84f19a
